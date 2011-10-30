@@ -11,6 +11,8 @@ Créer un projet maven et récupérer le pom.xml de ce repo Github.
 
 Pour les assertions, ...
 
+La présentation est disponible à l'adresse : https://docs.google.com/presentation/d/19iWQ4d_05Ahsc24p3JgpFoKalUbt-RNK3XQMv0ZdEUA/edit
+
 ***
 
 ### Hands On 1 : Fonction récursive en Guava
