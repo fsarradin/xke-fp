@@ -9,27 +9,32 @@ Créer un projet maven et récupérer le pom.xml de ce repo Github.
 - artifactId: xke-fp
 - version: 1.0
 
-La doc de Guava est ici : http://docs.guava-libraries.googlecode.com/git-history/v10.0.1/javadoc/index.html
+La doc de Guava est ici : http://docs.guava-libraries.googlecode.com/git-history/v10.0.1/javadoc/
 
 Pour les assertions, Fest-assert est utilisé : http://docs.codehaus.org/display/FEST/Fluent+Assertions+Module
+L'utilisation optimale de cette API nécessite d'intégrer l'import static suivant :
+
+    import static org.fest.assertions.Assertions.assertThat;
 
 La présentation est disponible à l'adresse :
 https://docs.google.com/presentation/d/19iWQ4d_05Ahsc24p3JgpFoKalUbt-RNK3XQMv0ZdEUA/edit
 
 ***
 
-### Hands On 1 : Fonction récursive en Guava
+### Hands On 1 : Fonction récursive
 
-Programmer une version de la fonction factorielle en se basant sur Guava.
+Programmer une version de la fonction factorielle.
 
-Tests unitaires
-
+    // test unitaire
     fact(0) = 1
     fact(1) = 1
     
     fact(5) = 120
     
     fact(10) = 3628800
+
+Réaliser cette exercice en Java seulement puis en utilisant l'interface Function de Guava,
+dans sa forme récursive simple puis dans sa forme récursive terminale.
 
 ***
 
@@ -38,6 +43,7 @@ Tests unitaires
 On fournit une liste de salaires. Ecrire la méthode `HandsOn.lessThan()` qui ne conserver
 les salaires inférieurs strictement à 3000 en utilisant `Iterables.filter()`.
 
+    // test unitaire
     Iterable<Double> salaries = Arrays.asList(1000.0, 2000.0, 2500.0, 3000.0, 4000.0);
     Iterable<Double> newSalaries = HandsOn.lessThan(3000.0, salaries);
     assertThat(newSalaries).containsExactly(1000.0, 2000.0, 2500.0);
@@ -46,9 +52,11 @@ les salaires inférieurs strictement à 3000 en utilisant `Iterables.filter()`.
 
 ### Hands On 3 : Map / Transform
 
+On fournit une liste de salaires.
 Ecrire la méthode `HandsOn.increaseSalaries()` qui applique une augmentation identique à
 une liste de salaires en utilisant `Iterables.transform()` (équivalent de `map` en Guava).
 
+    // test unitaire
     Iterable<Double> salaries = Arrays.asList(1000.0, 2000.0, 2500.0, 3000.0, 4000.0);
     Iterable<Double> newSalaries = HandsOn.increaseSalaries(salaries, 0.02);
     assertThat(newSalaries).containsExactly(1020.0, 2040.0, 2550.0, 3060.0, 4080.0);
@@ -91,7 +99,6 @@ tous les entiers à partir de 0 jusqu'à _l'infini_. Vous écrirez cette méthod
 la classe `AbstractIterator` mise à disposition par Guava.
 
     // test unitaire
-    
     Iterable<Integer> fiveInts = Iterables.limit(HandsOn.enumPositiveInts(), 5);
     assertThat(fiveInts).containsExactly(0, 1, 2, 3, 4);
 
