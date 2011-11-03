@@ -46,7 +46,7 @@ les salaires inférieurs strictement à 3000 en utilisant `Iterables.filter()`.
     // test unitaire
     Iterable<Double> salaries = Arrays.asList(1000.0, 2000.0, 2500.0, 3000.0, 4000.0);
     Iterable<Double> newSalaries = HandsOn.lessThan(3000.0, salaries);
-    assertThat(newSalaries).containsExactly(1000.0, 2000.0, 2500.0);
+    assertThat(newSalaries).containsOnly(1000.0, 2000.0, 2500.0);
 
 ***
 
@@ -59,7 +59,7 @@ une liste de salaires en utilisant `Iterables.transform()` (équivalent de `map`
     // test unitaire
     Iterable<Double> salaries = Arrays.asList(1000.0, 2000.0, 2500.0, 3000.0, 4000.0);
     Iterable<Double> newSalaries = HandsOn.increaseSalaries(salaries, 0.02);
-    assertThat(newSalaries).containsExactly(1020.0, 2040.0, 2550.0, 3060.0, 4080.0);
+    assertThat(newSalaries).containsOnly(1020.0, 2040.0, 2550.0, 3060.0, 4080.0);
 
 ***
 
@@ -88,7 +88,7 @@ basant sur une fonction.
     
     // test unitaire
     Iterable<Integer> result = zipWith(sum, Arrays.asList(1, 2), Arrays.asList(3, 4, 6));
-    assertThat(result).containsExactly(4, 5);
+    assertThat(result).containsExactly(4, 6);
 
 ***
 
